@@ -1,0 +1,11 @@
+﻿  Card.cpp
+D:\repos\My BlackJack\My BlackJack\Card.cpp(10,15): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  direr.cpp
+  Person.cpp
+  Player.cpp
+D:\repos\My BlackJack\My BlackJack\Player.cpp(54,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\repos\My BlackJack\My BlackJack\Player.cpp(64,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\repos\My BlackJack\My BlackJack\Player.cpp(79,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  실행파일.cpp
+  코드를 생성하고 있습니다...
+  My BlackJack.vcxproj -> D:\repos\My BlackJack\Debug\My BlackJack.exe

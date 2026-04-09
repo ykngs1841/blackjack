@@ -1,9 +1,9 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include "Player.h"
 
 void Player::Inft() const {
     
-    cout << "(´ç½ÅÀÇ ÀÌ¸§Àº " << name << " ³ªÀÌ´Â " << age << " Æ÷ÀÎÆ®´Â " << Point << ")\n";
+    cout << "(ë‹¹ì‹ ì˜ ì´ë¦„ì€ " << name << " ë‚˜ì´ëŠ” " << age << " í¬ì¸íŠ¸ëŠ” " << Point << ")\n";
 }
 
 Player::Player() {
@@ -75,7 +75,7 @@ int Player::myCardPoint()
         }
     }
 
-    //AÀÇ Æ÷ÀÎÆ®ÀÇ Á¤ÀÇ.(1¶Ç´Â 11)  
+    //Aì˜ í¬ì¸íŠ¸ì˜ ì •ì˜.(1ë˜ëŠ” 11)  
     for (int j = 0; j < myCard.size(); j++)
     {
         int temp2 = myCard[j].CardPoint();
@@ -112,19 +112,19 @@ bool Player::playCard(DeckofCards* deck) {
         if (myCardPoint() > 21) {
 
             cout << "BURST..." << endl;
-            //Æ÷ÀÎÆ® °¨¼Ò..  
+            //í¬ì¸íŠ¸ ê°ì†Œ..  
             return false;
         }
 
-        cout << getName() << "´Ô ";
-        cout << " Ä«µå¸¦ ´õ ¹ÞÀ¸½Ã°Ú½À´Ï±î? ( 1 - ´õ ¹Þ´Â´Ù. other-end) ";
+        cout << getName() << "ë‹˜ ";
+        cout << " ì¹´ë“œë¥¼ ë” ë°›ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ? ( 1 - ë” ë°›ëŠ”ë‹¤. other-end) ";
         cin >> inputNumber;
         if (inputNumber != 1)
             break;
 
 
         addCard(deck->getCard());
-        //Ä«µå¸¦ ÇÏ³ª ¹Þ´Â´Ù.   
+        //ì¹´ë“œë¥¼ í•˜ë‚˜ ë°›ëŠ”ë‹¤.   
 
 
     }

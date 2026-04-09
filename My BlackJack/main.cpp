@@ -2,62 +2,59 @@
 #include <ctime>  
 #include <string>  
 #include <iostream> 
-#include<Windows.h>
+#include <Windows.h>
+#include <locale>
 #include"Card.h"
 #include"Person.h"
 #include"Player.h"
-#include "direr.h"
+// dealer -> Player로 기능 이관 #include"dealer.h"
 
 using namespace std;
 int main()
 {
-    cout << "   \n";
-    cout << "  │                                                                        │ \n";
-    cout << "  │       ⊙⊙      ⊙       ⊙⊙⊙⊙⊙  ⊙⊙⊙  ⊙      ⊙  ⊙⊙⊙⊙⊙    │ \n";
-    cout << "  │     ⊙         ⊙⊙      ⊙            ⊙    ⊙⊙    ⊙  ⊙      ⊙    │ \n";
-    cout << "  │   ⊙          ⊙  ⊙     ⊙            ⊙    ⊙⊙    ⊙  ⊙      ⊙    │ \n";
-    cout << "  │ ⊙           ⊙    ⊙    ⊙            ⊙    ⊙ ⊙   ⊙  ⊙      ⊙    │ \n";
-    cout << "  │ ⊙          ⊙      ⊙   ⊙⊙⊙⊙⊙    ⊙    ⊙  ⊙  ⊙  ⊙      ⊙    │ \n";
-    cout << "  │ ⊙         ⊙        ⊙          ⊙    ⊙    ⊙   ⊙ ⊙  ⊙      ⊙    │ \n";
-    cout << "  │ ⊙         ⊙⊙⊙⊙⊙⊙          ⊙    ⊙    ⊙   ⊙ ⊙  ⊙      ⊙    │ \n";
-    cout << "  │   ⊙       ⊙        ⊙          ⊙    ⊙    ⊙    ⊙⊙  ⊙      ⊙    │ \n";
-    cout << "  │     ⊙     ⊙        ⊙          ⊙    ⊙    ⊙    ⊙⊙  ⊙      ⊙    │ \n";
-    cout << "  │       ⊙⊙ ⊙        ⊙  ⊙⊙⊙⊙⊙  ⊙⊙⊙  ⊙      ⊙  ⊙⊙⊙⊙⊙    │ \n";
-    cout << "  │                                                                        │ \n";
-    cout << "   \n";
+    SetConsoleOutputCP(65001);   // UTF-8 출력
+    SetConsoleCP(65001);         // UTF-8 입력
+    srand(time(NULL));
+cout << "\n";
+cout << "  |                                                        |\n";
+cout << "  |   *****    *****   *****     ***   *     *   *****     |\n";
+cout << "  |  *        *     * *     *     *    **    *  *     *    |\n";
+cout << "  |  *        *     * *           *    * *   *  *     *    |\n";
+cout << "  |  *        *******  *****      *    *  *  *  *     *    |\n";
+cout << "  |  *        *     *       *     *    *   * *  *     *    |\n";
+cout << "  |  *        *     * *     *     *    *    **  *     *    |\n";
+cout << "  |   *****   *     *  ******    ***   *     *   *****     |\n";
+cout << "  |                                                        |\n";
+cout << "\n";
     cout << "카지노에 오신것을 환영합니다!." << endl;
     cout << "카지노에 입장하기 전, 간단한 설문지 작성 부탁드리겠습니다.\n";
     int i;
-    DeckofCards Deck;
-    //카드를 잘 섞는다.   
+    DeckofCards Deck; //카드를 잘 섞는다.   
     Deck.shuffle();
     int playerCount;
     cout << "총 몇분이신가요??\n";
     cin >> playerCount;
-    direr1 Direr;
-    Person DIRER;
-    DIRER.setName("Jocker");
-    DIRER.setAge(35);
-    Direr.setPoint(1000000);
+    //Dealer dealer;  
+    //dealer.setPoint(1000000);
+    //dealer.setName("딜러");
+    //dealer.setAge(25);
+    Player dealer("딜러", 25, 1000000);
     Player* gamer = new Player[playerCount];
-    Person* Met = new Player[playerCount];
+    
 
-
-    //딜러설정  
-    Player direr("딜러", 25, 100000);
     for (i = 0; i < playerCount; i++)
     {
         string inputName;
-        cout << endl << direr.getName() << ":" << i + 1 << "번째 게임하는 사람 이름이 어떻게 되시나요? ";
+        cout << endl << dealer.getName() << ":" << i + 1 << "번째 게임하는 사람 이름이 어떻게 되시나요? ";
         cin >> inputName;
         gamer[i].setName(inputName);
-        //Met[i].setName(inputName);
+        
 
         int inputAge;
-        cout << direr.getName() << ":" << inputName << "의 나이는 어떻게 되시나요? ";
+        cout << dealer.getName() << ":" << inputName << "의 나이는 어떻게 되시나요? ";
         cin >> inputAge;
         gamer[i].setAge(inputAge);
-        Met[i].setAge(inputAge);
+        
         int point;
         cout << inputName << "님의 포인트는 얼마입니까? ";
         cin >> point;
@@ -78,26 +75,27 @@ int main()
     cout << " 게임을 시작하겠습니다. " << endl << endl;
 
     //게임의 대한 간단한 안내.  
-    cout << direr.getName() << "블랙잭 코너에 오신것을 환영합니다.\n";
-    cout << direr.getName() << ":간단하게 게임 방법을 설명해드리겠습니다." << endl;
+    cout << dealer.getName() << "블랙잭 코너에 오신것을 환영합니다.\n";
+    cout << dealer.getName() << ":간단하게 게임 방법을 설명해드리겠습니다." << endl;
     Sleep(500);
-    cout << direr.getName() << ":게이머는 저, 딜러로부터 카드를 2장이상의 카드를 원하는 만큼 받습니다." << endl;
+    cout << dealer.getName() << ":게이머는 저, 딜러로부터 카드를 2장이상의 카드를 원하는 만큼 받습니다." << endl;
     Sleep(500);
-    cout << direr.getName() << ":받은 카드의 합이 21을 넘지 않고, 상대방보다 포인트가 높으면 이깁니다. " << endl;
+    cout << dealer.getName() << ":받은 카드의 합이 21을 넘지 않고, 상대방보다 포인트가 높으면 이깁니다. " << endl;
     Sleep(500);
-    cout << direr.getName() << ":카드는 총 13종류이고, 10,J,Q,K카드는 모두 10포인트를 나타냅니다." << endl;
+    cout << dealer.getName() << ":카드는 총 13종류이고, 10,J,Q,K카드는 모두 10포인트를 나타냅니다." << endl;
     Sleep(500);
-    cout << direr.getName() << ":카드 중 A는 이전의 받은 카드의 합이 10이하일 경우 11을 나타내고, " << endl;
+    cout << dealer.getName() << ":카드 중 A는 이전의 받은 카드의 합이 10이하일 경우 11을 나타내고, " << endl;
     Sleep(500);
-    cout << direr.getName() << ":11이상일 경우에는 1을 나타냅니다. " << endl;
+    cout << dealer.getName() << ":11이상일 경우에는 1을 나타냅니다. " << endl;
     Sleep(500);
-    cout << direr.getName() << ":그럼 게임 시작하겠습니다." << endl;
+    cout << dealer.getName() << ":그럼 게임 시작하겠습니다." << endl;
 
     int end = 0;
     vector<int> beting;
 
     while (end == 0)
     {
+        Card temp;
         int betpoint = 0;
         //플레이어의 포인터 안내.  
         for (i = 0; i < playerCount; i++)
@@ -114,7 +112,7 @@ int main()
             if ((gamer[i].getPoint() == 0))
             {
                 int point;
-                cout << gamer[i].getName() << ":뭐야... 포인트가 다 떨어졌잖아...?\n"; "조금만 더 충전해야겠다. (충전할 포인트를 입력해주세요.)\n";
+                cout << gamer[i].getName() << ":뭐야... 포인트가 다 떨어졌잖아...?\n 조금만 더 충전해야겠다. (충전할 포인트를 입력해주세요.)\n"; 
                 cin >> point;
                 gamer[i].setPoint(point);
             }
@@ -124,10 +122,9 @@ int main()
                 gamer[i].Inft();
             }
             // 다형성
-            Person* people;
-            direr1 direr; 
-            people = &direr;
-            people->Inft();
+            // Person* people; 
+            // people = &dealer;
+            // people->Inft();
            
 
             cin >> betpoint;
@@ -169,25 +166,27 @@ int main()
         //첫번째 카드 받기..   
         for (i = 0; i < playerCount; i++)
         {
-            Card temp = Deck.getCard();
+            temp = Deck.getCard();
             gamer[i].addCard(temp);
             cout << gamer[i].getName() << " : ";
             gamer[i].showMyCard();
             cout << "\n";
         }
         //딜러 첫번째.  
-        Card temp = Deck.getCard();
-        direr.addCard(temp);
-        cout << direr.getName() << " : ";
-        direr.showMyCard();
+        Sleep(500);
+        temp = Deck.getCard();
+        dealer.addCard(temp);
+        cout << dealer.getName() << " : ";
+        dealer.showMyCard();
         cout << "\n";
 
 
         //두번째 카드 받기   
+        Sleep(500);
         for (i = 0; i < playerCount; i++)
         {
-            Card temp1 = Deck.getCard();
-            gamer[i].addCard(temp1);
+            temp = Deck.getCard();
+            gamer[i].addCard(temp);
             cout << gamer[i].getName() << " : ";
             gamer[i].showMyCard();
             cout << "\n";
@@ -195,19 +194,21 @@ int main()
 
 
         //딜러 두번째.  
-        cout << direr.getName() << " : ";
-        direr.showMyCard();
+        Sleep(500);
+        temp = Deck.getCard();
+        dealer.addCard(temp);
+        cout << dealer.getName() << " : ";
+        dealer.showMyCard();
         cout << "\n";
-        Card temp1 = Deck.getCard();
-        direr.addCard(temp1);
 
         //딜러 마지막.  
-        if (direr.myCardPoint() < 16)
+        Sleep(500);
+        if (dealer.myCardPoint() < 16)
         {
-            while (direr.myCardPoint() < 16)
+            while (dealer.myCardPoint() < 16)
             {
                 Card temp2 = Deck.getCard();
-                direr.addCard(temp2);
+                dealer.addCard(temp2);
             }
         }
 
@@ -221,11 +222,11 @@ int main()
 
 
 
-        if (direr.myCardPoint() > 21)
+        if (dealer.myCardPoint() > 21)
         {
             cout << " 딜러가 패배하였습니다..." << endl;
             int winerpoint = 0;
-            Direr.Losepoint(betpoint);
+            dealer.setPoint(dealer.getPoint() - betpoint);
             for (i = 0; i < playerCount; i++)
             {
                 if (gamer[i].myCardPoint() > winerpoint)
@@ -251,8 +252,8 @@ int main()
 
         else
         {
-            cout << direr.getName() << " : ";
-            direr.showMyCard();
+            cout << dealer.getName() << " : ";
+            dealer.showMyCard();
             cout << endl;
 
             for (i = 0; i < playerCount; i++)
@@ -262,7 +263,7 @@ int main()
                 cout << "\n";
             }
 
-            int winerpoint = direr.myCardPoint();
+            int winerpoint = dealer.myCardPoint();
 
             for (i = 0; i < playerCount; i++)
             {
@@ -280,11 +281,11 @@ int main()
 
             for (i = 0; i < playerCount; i++)
             {
-                if (winerpoint == direr.myCardPoint())
+                if (winerpoint == dealer.myCardPoint())
                 {
                     cout << "딜러가 이겼습니다. " << endl;
                     gamer[i].setPoint(gamer[i].getPoint() - beting[i]);
-                    Direr.Winpoint(betpoint);
+                    dealer.setPoint(dealer.getPoint() + betpoint);
                 }
                 else if (gamer[i].myCardPoint() == winerpoint)
                 {
@@ -302,7 +303,7 @@ int main()
 
         cout << " 게임을 계속 하시겠습니까?  ( 0 - 계속, 1 - 종료 )";
         cin >> end;
-        direr.clearCard();
+        dealer.clearCard();
         for (i = 0; i < playerCount; i++)
         {
             gamer[i].clearCard();

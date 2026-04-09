@@ -1,27 +1,26 @@
-#include "Card.h"
+ï»¿#include "Card.h"
 
 Card::Card(int number)
 {
     this->number = number;
 }
 
-DeckofCards::DeckofCards() //»ı¼ºÀÚ·Î ÀÚµ¿ ³­¼ö¸¸µé±â, ½ÃÀÛ½Ã Ä«µå ¼¯±â 
+DeckofCards::DeckofCards() //ìƒì„±ìë¡œ ìë™ ë‚œìˆ˜ë§Œë“¤ê¸°, ì‹œì‘ì‹œ ì¹´ë“œ ì„ê¸° 
 {
-    srand(time(NULL));
     init();
 }
 int Card::CardPoint()
 {
     int score = 0;
-    if (number % 13 == 0)  // KÄ«µå 10Á¡ ºÎ¿©
+    if (number % 13 == 0)  // Kì¹´ë“œ 10ì  ë¶€ì—¬
     {
         score = score + 10;
     }
-    else if (number % 13 < 10)  //Á¡¼ö¸¸Å­ Á¡¼ö ºÎ¿©
+    else if (number % 13 < 10)  //ì ìˆ˜ë§Œí¼ ì ìˆ˜ ë¶€ì—¬
     {
         score = score + number % 13;
     }
-    else  //J¿Í QÄ«µå 10Á¡ ºÎ¿©
+    else  //Jì™€ Qì¹´ë“œ 10ì  ë¶€ì—¬
     {
         score = score + 10;
     }
@@ -50,7 +49,7 @@ Card DeckofCards::getCard()
 
 void DeckofCards::shuffle()
 {
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1000; i++)
     {
         Card temp;
         int left;
@@ -68,20 +67,20 @@ void Card::show()
     int pattern;
     int cardnumber;
 
-    pattern = number / 13;// °ª¿¡ µû¶ó ÆĞÅÏ ÁöÁ¤
+    pattern = number / 13;// ê°’ì— ë”°ë¼ íŒ¨í„´ ì§€ì •
     cardnumber = number % 13;
     switch (pattern) {
     case 0:
-        cout << "¢¼";
+        cout << "â™ ";
         break;
     case 1:
-        cout << "¡Ş";
+        cout << "â—‡";
         break;
     case 2:
-        cout << "¢À";
+        cout << "â™£";
         break;
     case 3:
-        cout << "¢½";
+        cout << "â™¡";
         break;
     default:
         break;

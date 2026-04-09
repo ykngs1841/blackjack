@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include<iostream>
 #include<vector>
@@ -6,11 +6,11 @@
 #include"Person.h"
 using namespace std;
 
-class Player :public Person {  //»ç¶÷¿¡ ´ëÇÑ°ÍÀ» »ó¼Ó ¹Ş´Â´Ù.   
+class Player :public Person {  //ì‚¬ëŒì— ëŒ€í•œê²ƒì„ ìƒì† ë°›ëŠ”ë‹¤.   
 private:
 
-    int Point;        //°ÔÀÓ¿¡ »ç¿ëµÇ´Â »çÀÌ¹ö ¸Ó´Ï? (ÃÊ±â¿¡ ¾ó¸¶·Î ÇÒ±î¿ä? )  
-    vector <Card> myCard;  //°¡Áö°í ÀÖ´Â Ä«µå   
+    int Point;        //ê²Œì„ì— ì‚¬ìš©ë˜ëŠ” ì‚¬ì´ë²„ ë¨¸ë‹ˆ? (ì´ˆê¸°ì— ì–¼ë§ˆë¡œ í• ê¹Œìš”? )  
+    vector <Card> myCard;  //ê°€ì§€ê³  ìˆëŠ” ì¹´ë“œ   
 
 public:
     Player();
@@ -18,19 +18,19 @@ public:
     Player(string name, int Point);
     Player(string name, int age, int Point);
 
-    int getPoint() const;    //Æ÷ÀÎÆ®°¡ ¾ó¸¶³ª ³²¾Ò³ª È®ÀÎ..   
-    void setPoint(int point);  //Æ÷ÀÎÆ®¸¦ ¼³Á¤  
-    void changePoint(int point);//Æ÷ÀÎÆ®¸¦ º¯°æ.. ±¸ÀÔ, Â÷°¨À» À§ÇÏ¿© 
-    virtual void Inft() const; // !!PersonÀÇ Inft¿Í ´ÙÇü¼º »ç¿ë!!
+    int getPoint() const;    //í¬ì¸íŠ¸ê°€ ì–¼ë§ˆë‚˜ ë‚¨ì•˜ë‚˜ í™•ì¸..   
+    void setPoint(int point);  //í¬ì¸íŠ¸ë¥¼ ì„¤ì •  
+    void changePoint(int point);//í¬ì¸íŠ¸ë¥¼ ë³€ê²½.. êµ¬ì…, ì°¨ê°ì„ ìœ„í•˜ì—¬ 
+    virtual void Inft() const; // !!Personì˜ Inftì™€ ë‹¤í˜•ì„± ì‚¬ìš©!!
 
-    bool playCard(DeckofCards* deck);  //burstµÈ °æ¿ì false return ;  
-    int addCard(Card); // card ÇÑÀåÀ» ´õ ¹Ş´Ù.   
-    void showMyCard(); // card¸¦ º¸¿©ÁØ´Ù.   
-    int myCardPoint(); // card Á¡¼ö¸¦ º¸¿©ÁØ´Ù.   
+    bool playCard(DeckofCards* deck);  //burstëœ ê²½ìš° false return ;  
+    int addCard(Card); // card í•œì¥ì„ ë” ë°›ë‹¤.   
+    void showMyCard(); // cardë¥¼ ë³´ì—¬ì¤€ë‹¤.   
+    int myCardPoint(); // card ì ìˆ˜ë¥¼ ë³´ì—¬ì¤€ë‹¤.   
     int clearCard();
 };
 
 /*Person* P;
 Player Me;
 P = &Me;
-P -> Inft(); //¼º±¸ Èûµé´Ù... */
+P -> Inft(); //ì„±êµ¬ í˜ë“¤ë‹¤... */

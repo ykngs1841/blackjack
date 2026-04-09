@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<iostream>
 #include<vector>
 #include<ctime>
@@ -7,21 +7,21 @@ using namespace std;
 
 class Card {
 private:
-    string spade;//¢¼
-    string hart;//¢½; 
-    string diamond;//¡Ş  
-    string clover;//¢À  
+    string spade;//â™ 
+    string hart;//â™¡; 
+    string diamond;//â—‡  
+    string clover;//â™£  
     int number;
 public:
-    Card(int number); //Ä«µå¿¡ ¹øÈ£ ³Ö±â   
-    void show(); //Ä«µå º¸¿©ÁÖ±â   
+    Card(int number); //ì¹´ë“œì— ë²ˆí˜¸ ë„£ê¸°   
+    void show(); //ì¹´ë“œ ë³´ì—¬ì£¼ê¸°   
     Card()
     {
         number = 51;
-        spade = "¢¼";
-        hart = "¢½";
-        diamond = "¡Ş";
-        clover = "¢À";
+        spade = "â™ ";
+        hart = "â™¡";
+        diamond = "â—‡";
+        clover = "â™£";
     }
     int CardPoint();
 };
@@ -32,7 +32,7 @@ public:
 
 class DeckofCards {
 private:
-    vector<Card> number; //Ä«µå 52Àå.   
+    vector<Card> number; //ì¹´ë“œ 52ì¥.   
 public:
 
     DeckofCards();

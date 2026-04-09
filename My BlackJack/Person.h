@@ -1,18 +1,18 @@
-#pragma once
+ï»¿#pragma once
 #include<iostream>
 using namespace std;
 class Person {
 protected:
-    string name="Jocker";  //»ç¶÷ÀÇ ÀÌ¸§.   
-    int age=35;    //»ç¶÷ÀÇ ³ªÀÌ   
+    string name="Jocker";  //ì‚¬ëŒì˜ ì´ë¦„.   
+    int age=35;    //ì‚¬ëŒì˜ ë‚˜ì´   
 public:
-    Person();    //»ç¶÷À» »ı¼ºÇÔ.. ÀÌ¸§ ³ªÀÌ ÀÔ·Â ¾øÀÌ..   
-    Person(string name);  //»ç¶÷À» »ı¼ºÇÔ.. ÀÌ¸§¸¸ °¡Áö°í   
+    Person();    //ì‚¬ëŒì„ ìƒì„±í•¨.. ì´ë¦„ ë‚˜ì´ ì…ë ¥ ì—†ì´..   
+    Person(string name);  //ì‚¬ëŒì„ ìƒì„±í•¨.. ì´ë¦„ë§Œ ê°€ì§€ê³    
     Person(string name, int age);
 
-    string getName() const;    //»ç¶÷ÀÇ ÀÌ¸§À» µ¹·ÁÁÜ.   
-    int getAge() const;      //»ç¶÷ÀÇ ³ªÀÌ¸¦ µ¹·ÁÁÜ.   
-    void setName(string name);  //»ç¶÷ÀÇ ÀÌ¸§À» ¼³Á¤ÇÔ.   
-    void setAge(int age);    //»ç¶÷ÀÇ ³ªÀÌ¸¦ ¼³Á¤ÇÔ.   
-    virtual void Inft() const {}//  !!PlayerÀÇ Inft¿Í ´ÙÇü¼º »ç¿ë!!
+    string getName() const;    //ì‚¬ëŒì˜ ì´ë¦„ì„ ëŒë ¤ì¤Œ.   
+    int getAge() const;      //ì‚¬ëŒì˜ ë‚˜ì´ë¥¼ ëŒë ¤ì¤Œ.   
+    void setName(string name);  //ì‚¬ëŒì˜ ì´ë¦„ì„ ì„¤ì •í•¨.   
+    void setAge(int age);    //ì‚¬ëŒì˜ ë‚˜ì´ë¥¼ ì„¤ì •í•¨.   
+    virtual void Inft() const {}//  !!Playerì˜ Inftì™€ ë‹¤í˜•ì„± ì‚¬ìš©!!
 };
